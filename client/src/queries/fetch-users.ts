@@ -1,5 +1,5 @@
-import { ApiResponse } from "../../types/api";
-import { User } from "../../types/entities";
+import { ApiResponse } from "../types/api";
+import { User } from "../types/entities";
 
 export const fetchUsers = async ({ queryKey }: { queryKey: [string, { search?: string }] }): Promise<ApiResponse<User[]>> => {
   const [_key, { search }] = queryKey;

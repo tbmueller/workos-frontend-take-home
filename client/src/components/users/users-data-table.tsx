@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchUsers } from "./fetch-users";
+import { fetchUsers } from "../../queries/fetch-users";
 import { UserTable } from "./user-table";
 
 export const UsersDataTable = ({search}: {search: string}) => {
