@@ -1,3 +1,30 @@
+# Trista's Frontend Take-Home Assignment
+
+## How to run the project
+
+### Start the backend server
+
+From the project root:
+```
+  cd server
+  npm install
+  npm run api
+  ```
+
+### Start the client server
+
+From the project root:
+```
+  cd client
+  npm install
+  npm run dev
+```
+
+## Choices made
+
+- The client server runs on [Vite](https://vite.dev/), as [create-react-app](https://github.com/facebook/create-react-app) has recently been deprecated.
+
+
 # Frontend Take-Home Assignment
 
 Welcome to the WorkOS Frontend Take-Home Assignment!
