@@ -4,6 +4,11 @@ import { Users } from './components/users'
 import { Roles } from './components/roles'
 import { NotFound } from './components/not-found'
 import { Box, Container, Flex, TabNav } from '@radix-ui/themes'
+import { fetchRoles } from './components/roles/fetch-user-roles'
+import { use } from 'react'
+import { RolesContext } from './components/roles/roles-context'
+
+const rolesPromise = fetchRoles();
 
 function App() {
   const { pathname } = useLocation();
@@ -13,6 +18,8 @@ function App() {
     xs: "425px",
     lg: "850px",
   };
+
+  const { data: roles } = use(rolesPromise);
 
   return (
     // TODO: break this up a bit for readability
@@ -32,12 +39,14 @@ function App() {
                 </TabNav.Link>
               </Box>
             </TabNav.Root>
-            <Routes>
-                <Route index element={<Navigate to="/users" />}></Route>
-                <Route path="/users" element={<Users/>} />
-                <Route path="/roles" element={<Roles />} />
-                <Route path="*" element={<NotFound />} />
-            </Routes>
+            <RolesContext value={roles}>
+              <Routes>
+                  <Route index element={<Navigate to="/users" />}></Route>
+                  <Route path="/users" element={<Users/>} />
+                  <Route path="/roles" element={<Roles />} />
+                  <Route path="*" element={<NotFound />} />
+              </Routes>
+            </RolesContext>
           </Flex>
         </Container>
       </Container>

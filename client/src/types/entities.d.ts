@@ -7,4 +7,12 @@ export interface User {
     roleId: string;
     photo?: string;
 }
-  
+
+export interface Role {
+    id: string;
+    createdAt: string;
+    updatedAt: string;
+    name: string;
+    description?: string;
+    isDefault: boolean;
+}
