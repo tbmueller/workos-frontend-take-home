@@ -1,7 +1,5 @@
-import { Tabs } from "@radix-ui/themes";
+import { UserTable } from "./user-table";
 
 export const Users = () => {
-    return <Tabs.Content value="/users">
-        Users
-    </Tabs.Content>;
+    return <UserTable/>
 }

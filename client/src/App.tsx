@@ -3,39 +3,38 @@ import { Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { Users } from './users'
 import { Roles } from './roles'
 import { NotFound } from './not-found'
-import { Box, Container, Flex, Tabs } from '@radix-ui/themes'
+import { Container, Flex, TabNav } from '@radix-ui/themes'
 
 function App() {
-  const location = useLocation();
+  const { pathname } = useLocation();
+
+  const sizing = {
+    initial: "300px",
+    xs: "425px",
+    lg: "850px",
+  };
 
   return (
     // TODO: break this up a bit for readability
     <Flex direction="column" height="100%" gap="3">
       <Container py="7" px="2">
-        <Container maxWidth="850px" maxHeight="820px">
-          <Tabs.Root defaultValue={location.pathname}>
-            <Flex asChild width="850px" gap="5">
-              <>
-                <Tabs.List color="purple">
-                  <NavLink to="/users">
-                    <Tabs.Trigger value="/users">Users</Tabs.Trigger>
-                  </NavLink>
-                  <NavLink to="/roles">
-                    <Tabs.Trigger value="/roles">Roles</Tabs.Trigger>
-                  </NavLink>
-                </Tabs.List>
-                {/* TODO: Re-examine this spacing */}
-                <Box pt="3">
-                  <Routes>
-                      <Route index element={<Navigate to="/users" />}></Route>
-                      <Route path="/users" element={<Users/>} />
-                      <Route path="/roles" element={<Roles />} />
-                      <Route path="*" element={<NotFound />} />
-                  </Routes>
-                </Box>
-              </>
-            </Flex>
-          </Tabs.Root>
+        <Container maxWidth={sizing} maxHeight="820px">
+          <Flex width={sizing} gap="5" direction="column">
+            <TabNav.Root color="purple">
+              <TabNav.Link asChild href="/users" active={pathname === "/users"}>
+                <NavLink to="/users">Users</NavLink>
+              </TabNav.Link>
+              <TabNav.Link asChild href="/roles" active={pathname === "/roles"}>
+                <NavLink to="/roles">Roles</NavLink>
+              </TabNav.Link>
+            </TabNav.Root>
+            <Routes>
+                <Route index element={<Navigate to="/users" />}></Route>
+                <Route path="/users" element={<Users/>} />
+                <Route path="/roles" element={<Roles />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Flex>
         </Container>
       </Container>
     </Flex>
