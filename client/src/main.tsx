@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <BrowserRouter>
-        <Theme>
+        <Theme accentColor="purple">
           <App />
         </Theme>
       </BrowserRouter>
