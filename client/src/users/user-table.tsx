@@ -1,6 +1,11 @@
 import { Table } from "@radix-ui/themes";
+import { useMemo } from "react";
+import { UserRow } from "./user-row";
 
-export const UserTable = () => {
+export const UserTable = ({ users }: { users: unknown[] }) => {
+
+    const rows = useMemo(() => (users.map((u) => <UserRow user={u} />)), [users]);
+
     return (
         <Table.Root>
             <Table.Header>
@@ -12,6 +17,9 @@ export const UserTable = () => {
                 </Table.Row>
             </Table.Header>
 
+            <Table.Body>
+                {rows}
+            </Table.Body>
         </Table.Root>
     );
 };
