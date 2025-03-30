@@ -17,7 +17,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <BrowserRouter>
-        <Theme accentColor="purple">
+        <Theme accentColor="iris" radius="medium">
           <QueryClientProvider client={queryClient}>
             <App />
           </QueryClientProvider>
