@@ -9,6 +9,7 @@ function App() {
   const location = useLocation();
 
   return (
+    // TODO: break this up a bit for readability
     <Flex direction="column" height="100%" gap="3">
       <Container py="7" px="2">
         <Container maxWidth="850px" maxHeight="820px">
