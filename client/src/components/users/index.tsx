@@ -1,10 +1,13 @@
-import { use } from "react";
-import { UserTable } from "./user-table";
-import { fetchUsers } from "./fetch-users";
-
-const userPromise = fetchUsers();
+import { useState } from "react";
+import { UsersDataTable } from "./users-data-table";
 
 export const Users = () => {
-    const { data: users } = use(userPromise);
-    return <UserTable users={users} />
+    const [search, setSearch] = useState("");
+
+    return (
+        <>
+            <input value={search} onChange={(e) => setSearch(e.currentTarget.value)}></input>
+            <UsersDataTable search={search} />
+        </>
+    );
 }
