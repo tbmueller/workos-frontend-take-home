@@ -1,11 +1,11 @@
-import { Table, IconButton } from "@radix-ui/themes"
+import { Table } from "@radix-ui/themes"
 import { User } from "../../types/entities";
 import { UserContext } from "./user-context";
 import { PhotoNameCell } from "./photo-name-cell";
 import { userJoinDate, useUserRole } from "./util";
-import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { SimpleTextCell } from "../table/simple-text-cell";
 import { SimpleCell } from "../table/simple-text-cell copy";
+import { Dropdown } from "./dropdown";
 
 export const UserRow = ({ user }: { user: User }) => {
     const joinDate = userJoinDate(user);
@@ -24,9 +24,7 @@ export const UserRow = ({ user }: { user: User }) => {
                     {joinDate}
                 </SimpleTextCell>
                 <SimpleCell>
-                    <IconButton variant="ghost" color="gray">
-                        <DotsHorizontalIcon />
-                    </IconButton>
+                    <Dropdown />
                 </SimpleCell>
             </Table.Row>
         </UserContext>
