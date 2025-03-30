@@ -4,7 +4,7 @@ import { Users } from './components/users'
 import { Roles } from './components/roles'
 import { NotFound } from './components/not-found'
 import { Box, Container, Flex, TabNav } from '@radix-ui/themes'
-import { fetchRoles } from './components/roles/fetch-user-roles'
+import { fetchRoles } from './components/roles/fetch-roles'
 import { use } from 'react'
 import { RolesContext } from './components/roles/roles-context'
 
