@@ -8,7 +8,7 @@ import App from './App.tsx'
 
 import "@radix-ui/themes/styles.css";
 import { Theme } from '@radix-ui/themes'
-import { ErrorFallback } from './error-fallback/index.tsx';
+import { ErrorFallback } from './components/error-fallback/index.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

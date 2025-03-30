@@ -1,8 +1,8 @@
 import './App.css'
 import { Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
-import { Users } from './users'
-import { Roles } from './roles'
-import { NotFound } from './not-found'
+import { Users } from './components/users'
+import { Roles } from './components/roles'
+import { NotFound } from './components/not-found'
 import { Box, Container, Flex, TabNav } from '@radix-ui/themes'
 
 function App() {
