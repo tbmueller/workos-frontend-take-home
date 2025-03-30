@@ -15,7 +15,7 @@ export const PhotoNameCell = () => {
 
     return (
         <>
-            <Avatar src={user.photo} fallback={avatarLetter} />
+            <Avatar width="5" height="5" radius="full" src={user.photo} fallback={avatarLetter} />
             {name}
         </>
     );
