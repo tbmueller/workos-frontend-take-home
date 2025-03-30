@@ -1,10 +1,11 @@
 import { Table } from "@radix-ui/themes";
 import { useMemo } from "react";
 import { UserRow } from "./user-row";
+import { User } from "../../types/entities";
 
-export const UserTable = ({ users }: { users: unknown[] }) => {
+export const UserTable = ({ users }: { users: User[] }) => {
 
-    const rows = useMemo(() => (users.map((u) => <UserRow user={u} />)), [users]);
+    const rows = useMemo(() => (users.map((u: User) => <UserRow key={u.id} user={u} />)), [users]);
 
     return (
         <Table.Root>

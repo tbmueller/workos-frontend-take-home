@@ -5,7 +5,6 @@ import { fetchUsers } from "./fetch-users";
 const userPromise = fetchUsers();
 
 export const Users = () => {
-    const users = use(userPromise);
-    console.log(users)
-    return <UserTable users={users.data} />
+    const { data: users } = use(userPromise);
+    return <UserTable users={users} />
 }
