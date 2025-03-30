@@ -3,7 +3,7 @@ import { Navigate, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { Users } from './users'
 import { Roles } from './roles'
 import { NotFound } from './not-found'
-import { Container, Flex, TabNav } from '@radix-ui/themes'
+import { Box, Container, Flex, TabNav } from '@radix-ui/themes'
 
 function App() {
   const { pathname } = useLocation();
@@ -21,12 +21,16 @@ function App() {
         <Container maxWidth={sizing} maxHeight="820px">
           <Flex width={sizing} gap="5" direction="column">
             <TabNav.Root color="purple">
-              <TabNav.Link asChild href="/users" active={pathname === "/users"}>
-                <NavLink to="/users">Users</NavLink>
-              </TabNav.Link>
-              <TabNav.Link asChild href="/roles" active={pathname === "/roles"}>
-                <NavLink to="/roles">Roles</NavLink>
-              </TabNav.Link>
+              <Box px="2">
+                <TabNav.Link asChild href="/users" active={pathname === "/users"}>
+                    <NavLink to="/users">Users</NavLink>
+                </TabNav.Link>
+              </Box>
+              <Box px="2">
+                <TabNav.Link asChild href="/roles" active={pathname === "/roles"}>
+                  <NavLink to="/roles">Roles</NavLink>
+                </TabNav.Link>
+              </Box>
             </TabNav.Root>
             <Routes>
                 <Route index element={<Navigate to="/users" />}></Route>
