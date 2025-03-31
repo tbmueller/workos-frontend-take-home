@@ -14,8 +14,6 @@ export const UsersDataTable = ({search}: {search: string}) => {
 
     const userData = data == null ? [] : data.data;
     const [users, setUsers] = useState(userData);
-    console.log(userData)
-    console.log(users)
     
     if (isLoading) {
         return <Skeleton />;
@@ -23,12 +21,13 @@ export const UsersDataTable = ({search}: {search: string}) => {
     
     if (userData == null || userData.length === 0) {
         return <EmptyState />;
+    } else if (userData.length != users.length) {
+        setUsers(userData);
     }
-
 
     return (
         <SetUsersContext value={setUsers}>
-            <UserTable users={userData} />
+            <UserTable users={users} />
         </SetUsersContext>
     );
 }

@@ -1,18 +1,39 @@
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { DropdownMenu, IconButton } from "@radix-ui/themes";
-import { useContext } from "react";
+import { ReactNode, useContext, useState } from "react";
 import { UserContext } from "./contexts/user-context";
 import { SetUsersContext } from "./contexts/set-users-context";
+import { useDeleteUser } from "../../queries/use-delete-user";
 
 export const Dropdown = () => {
     const user = useContext(UserContext);
     const setUsers = useContext(SetUsersContext);
+    const [deleteInProgress, setDeleteInProgress] = useState(false);
     if (user == null || setUsers == null) {
         return null;
     }
 
+    const deleteUser = useDeleteUser();
+
     const clickHandler = () => {
-        setUsers((existing) => existing.filter((u) => u.id !== user.id));
+        if (!deleteInProgress) {
+            setDeleteInProgress(true);
+            setUsers((existing) => existing.filter((u) => u.id !== u.id));
+            deleteUser.mutate(user.id);
+        }
+    };
+
+    const menuItems: ReactNode[] = [
+        <DropdownMenu.Item key="edit">
+            Edit user
+        </DropdownMenu.Item>
+    ];
+    if (!deleteInProgress) {
+        menuItems.push(
+            <DropdownMenu.Item key="delete" onClick={clickHandler}>
+                Delete user
+            </DropdownMenu.Item>
+        );
     };
 
     return (
@@ -22,11 +43,11 @@ export const Dropdown = () => {
                     <DotsHorizontalIcon />
                 </IconButton>
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content>
-                <DropdownMenu.Item onClick={clickHandler}>
-                    Delete user
-                </DropdownMenu.Item>
-            </DropdownMenu.Content>
+            {menuItems.length > 0 &&
+                <DropdownMenu.Content>
+                    {menuItems}
+                </DropdownMenu.Content>
+            }
         </DropdownMenu.Root>
     );
 }
