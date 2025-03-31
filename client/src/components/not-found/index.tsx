@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom"
 export const NotFound = () => {
     const location = useLocation();
     return <>
-        <Callout.Root color="red">
+        <Callout.Root color="yellow">
             <Callout.Icon>
                 <ExclamationTriangleIcon />
             </Callout.Icon>

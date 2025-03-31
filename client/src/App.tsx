@@ -8,6 +8,8 @@ import { fetchRoles } from './components/roles/fetch-roles'
 import { use } from 'react'
 import { RolesContext } from './components/roles/roles-context'
 import { RoutedTabNavLink } from './components/routed-tab-nav-link'
+import { ErrorBoundary } from 'react-error-boundary'
+import { ErrorFallback } from './components/error-fallback'
 
 const rolesPromise = fetchRoles();
 
@@ -22,27 +24,28 @@ function App() {
   const { data: roles } = use(rolesPromise);
 
   return (
-    // TODO: break this up a bit for readability
-    <Flex direction="column" height="100%" gap="3">
-      <Container py="7" px="2">
-        <Container maxWidth={sizing} maxHeight="820px">
-          <Flex width={sizing} gap="5" direction="column">
-            <TabNav.Root>
-              <RoutedTabNavLink href="/users" text="Users" />
-              <RoutedTabNavLink href="/roles" text="Roles" />
-            </TabNav.Root>
-            <RolesContext value={roles}>
-              <Routes>
-                  <Route index element={<Navigate to="/users" />}></Route>
-                  <Route path="/users" element={<Users/>} />
-                  <Route path="/roles" element={<Roles />} />
-                  <Route path="*" element={<NotFound />} />
-              </Routes>
-            </RolesContext>
-          </Flex>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Flex direction="column" height="100%" gap="3">
+        <Container py="7" px="2">
+          <Container maxWidth={sizing} maxHeight="820px">
+            <Flex width={sizing} gap="5" direction="column">
+              <TabNav.Root>
+                <RoutedTabNavLink href="/users" text="Users" />
+                <RoutedTabNavLink href="/roles" text="Roles" />
+              </TabNav.Root>
+              <RolesContext value={roles}>
+                <Routes>
+                    <Route index element={<Navigate to="/users" />}></Route>
+                    <Route path="/users" element={<Users/>} />
+                    <Route path="/roles" element={<Roles />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+              </RolesContext>
+            </Flex>
+          </Container>
         </Container>
-      </Container>
-    </Flex>
+      </Flex>
+    </ErrorBoundary>
   )
 }
 

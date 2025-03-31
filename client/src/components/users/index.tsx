@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UsersDataTable } from "./users-data-table";
+import { UsersDataTable } from "./table/data-table";
 import { Button, Flex, TextField } from "@radix-ui/themes";
 import { MagnifyingGlassIcon, PlusIcon } from "@radix-ui/react-icons";
 
