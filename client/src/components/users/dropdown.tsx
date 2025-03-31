@@ -1,5 +1,5 @@
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
-import { Button, Dialog, DropdownMenu, Em, Flex, IconButton, Strong } from "@radix-ui/themes";
+import { Button, Dialog, DropdownMenu, Flex, IconButton, Strong } from "@radix-ui/themes";
 import { ReactNode, useContext, useState } from "react";
 import { UserContext } from "./contexts/user-context";
 import { SetUsersContext } from "./contexts/set-users-context";
@@ -10,11 +10,11 @@ export const Dropdown = () => {
     const user = useContext(UserContext);
     const setUsers = useContext(SetUsersContext);
     const [deleteInProgress, setDeleteInProgress] = useState(false);
+    const deleteUser = useDeleteUser();
+
     if (user == null || setUsers == null) {
         return null;
     }
-
-    const deleteUser = useDeleteUser();
 
     const clickHandler = () => {
         if (!deleteInProgress) {
