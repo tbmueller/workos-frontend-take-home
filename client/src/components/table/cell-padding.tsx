@@ -1,7 +1,7 @@
 import { Flex } from "@radix-ui/themes";
 import { ReactNode } from "react";
 
-export const CellContents = ({ children }: { children: ReactNode }) => {
+export const CellPadding = ({ children }: { children: ReactNode }) => {
     return <Flex gap="2" px="3" direction={{
         initial: "column",
         md: "row",

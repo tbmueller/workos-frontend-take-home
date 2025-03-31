@@ -2,6 +2,7 @@ import { Table } from "@radix-ui/themes"
 import { useContext, useMemo } from "react";
 import { RolesContext } from "../roles-context";
 import { RoleRow } from "./role-row";
+import { CellPadding } from "../../table/cell-padding";
 
 export const RolesTable = () => {
     const roles = useContext(RolesContext);
@@ -11,10 +12,18 @@ export const RolesTable = () => {
         <Table.Root variant="surface">
             <Table.Header>
                 <Table.Row>
-                    <Table.ColumnHeaderCell>Role</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Description</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Default?</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Last updated</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                        <CellPadding>Role</CellPadding>
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                        <CellPadding>Description</CellPadding>
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                        <CellPadding>Default?</CellPadding>
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                        <CellPadding>Last updated</CellPadding>
+                    </Table.ColumnHeaderCell>
                 </Table.Row>
             </Table.Header>
 

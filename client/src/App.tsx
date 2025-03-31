@@ -1,4 +1,3 @@
-import './App.css'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { Users } from './components/users'
 import { Roles } from './components/roles'

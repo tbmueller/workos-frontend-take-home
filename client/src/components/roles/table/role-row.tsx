@@ -6,8 +6,8 @@ import { PaddedTextCell } from "../../table/padded-text-cell";
 export const RoleRow = ({ role }: { role: Role}) => {
     return (
         <Table.Row>
-            <Table.Cell>{role.name}</Table.Cell>
-            <Table.Cell>{role.description ?? ""}</Table.Cell>
+            <PaddedTextCell>{role.name}</PaddedTextCell>
+            <PaddedTextCell>{role.description ?? ""}</PaddedTextCell>
             <PaddedTextCell>{defaultString(role)}</PaddedTextCell>
             <PaddedTextCell>{lastUpdatedTime(role)}</PaddedTextCell>
         </Table.Row>

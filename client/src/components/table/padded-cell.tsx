@@ -1,11 +1,11 @@
 import { Table } from "@radix-ui/themes";
 import { ReactNode } from "react";
-import { CellContents } from "./cell-contents";
+import { CellPadding } from "./cell-padding";
 
 export const PaddedCell = ({ children }: { children: ReactNode}) => (
     <Table.Cell>
-        <CellContents>
+        <CellPadding>
             {children}
-        </CellContents>
+        </CellPadding>
     </Table.Cell>
 );

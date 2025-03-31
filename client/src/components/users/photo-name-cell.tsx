@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { UserContext } from "./contexts/user-context"
 import { Avatar, Text } from "@radix-ui/themes";
 import { userName } from "./util";
-import { CellContents } from "../table/cell-contents";
+import { CellPadding } from "../table/cell-padding";
 
 export const PhotoNameCell = () => {
     const user = useContext(UserContext);
@@ -15,11 +15,11 @@ export const PhotoNameCell = () => {
     const name = userName(user);
 
     return (
-        <CellContents>
+        <CellPadding>
             <Avatar size="1" radius="full" src={user.photo} fallback={avatarLetter} />
             <Text size="2" align="center">
                 {name}
             </Text>
-        </CellContents>
+        </CellPadding>
     );
 }
