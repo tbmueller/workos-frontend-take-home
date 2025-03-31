@@ -6,8 +6,8 @@ import { SimpleTextCell } from "../../table/simple-text-cell";
 export const RoleRow = ({ role }: { role: Role}) => {
     return (
         <Table.Row>
-            <SimpleTextCell>{role.name}</SimpleTextCell>
-            <SimpleTextCell>{role.description ?? ""}</SimpleTextCell>
+            <Table.Cell>{role.name}</Table.Cell>
+            <Table.Cell>{role.description ?? ""}</Table.Cell>
             <SimpleTextCell>{defaultString(role)}</SimpleTextCell>
             <SimpleTextCell>{lastUpdatedTime(role)}</SimpleTextCell>
         </Table.Row>
