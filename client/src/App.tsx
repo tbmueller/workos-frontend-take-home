@@ -3,12 +3,12 @@ import { Users } from './components/users'
 import { Roles } from './components/roles'
 import { NotFound } from './components/not-found'
 import { Container, Flex, TabNav } from '@radix-ui/themes'
-import { fetchRoles } from './components/roles/fetch-roles'
 import { use } from 'react'
 import { RolesContext } from './components/roles/roles-context'
 import { RoutedTabNavLink } from './components/routed-tab-nav-link'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback } from './components/error-fallback'
+import { fetchRoles } from './queries/fetch-roles'
 
 const rolesPromise = fetchRoles();
 
