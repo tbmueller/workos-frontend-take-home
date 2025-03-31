@@ -46,7 +46,7 @@ In-browser, access the client at [this URL](http://localhost:5173/): ```http://l
 
 - The client server runs on [Vite](https://vite.dev/) due to its ease of use and hot-module reloading.
 - The API interaction uses [react-query](https://tanstack.com/query/latest/docs/framework/react/overview)
-- Because the design closely matches Radix's look and feel, I chose [Radix](https://www.radix-ui.com/) as the component library.
+- Because the design closely matches Radix's look and feel, I chose [Radix](https://www.radix-ui.com/) as the component library. Radix additionally provides an easy API for breakpoints, which I've made use of.
 
 ### Trade-offs and what I would have improved with more time
 
