@@ -1,3 +1,5 @@
+import { RolesTable } from "./table";
+
 export const Roles = () => {
-    return "Roles";
+    return <RolesTable />;
 }
