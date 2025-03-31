@@ -3,8 +3,8 @@ import { User } from "../../types/entities";
 import { UserContext } from "./contexts/user-context";
 import { PhotoNameCell } from "./photo-name-cell";
 import { userJoinDate, useUserRole } from "./util";
-import { SimpleTextCell } from "../table/simple-text-cell";
-import { SimpleCell } from "../table/simple-cell";
+import { PaddedTextCell } from "../table/padded-text-cell";
+import { PaddedCell } from "../table/padded-cell";
 import { Dropdown } from "./dropdown";
 
 export const UserRow = ({ user }: { user: User }) => {
@@ -17,15 +17,15 @@ export const UserRow = ({ user }: { user: User }) => {
                 <Table.Cell>
                     <PhotoNameCell />
                 </Table.Cell>
-                <SimpleTextCell>
+                <PaddedTextCell>
                     {role}
-                </SimpleTextCell>
-                <SimpleTextCell>
+                </PaddedTextCell>
+                <PaddedTextCell>
                     {joinDate}
-                </SimpleTextCell>
-                <SimpleCell>
+                </PaddedTextCell>
+                <PaddedCell>
                     <Dropdown />
-                </SimpleCell>
+                </PaddedCell>
             </Table.Row>
         </UserContext>
     );
