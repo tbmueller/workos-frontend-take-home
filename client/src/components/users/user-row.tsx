@@ -1,10 +1,10 @@
 import { Table } from "@radix-ui/themes"
 import { User } from "../../types/entities";
-import { UserContext } from "./user-context";
+import { UserContext } from "./contexts/user-context";
 import { PhotoNameCell } from "./photo-name-cell";
 import { userJoinDate, useUserRole } from "./util";
 import { SimpleTextCell } from "../table/simple-text-cell";
-import { SimpleCell } from "../table/simple-text-cell copy";
+import { SimpleCell } from "../table/simple-cell";
 import { Dropdown } from "./dropdown";
 
 export const UserRow = ({ user }: { user: User }) => {

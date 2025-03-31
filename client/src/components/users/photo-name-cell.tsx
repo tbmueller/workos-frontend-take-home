@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { UserContext } from "./user-context"
+import { UserContext } from "./contexts/user-context"
 import { Avatar, Text } from "@radix-ui/themes";
 import { userName } from "./util";
 import { CellContents } from "../table/cell-contents";
@@ -16,7 +16,7 @@ export const PhotoNameCell = () => {
 
     return (
         <CellContents>
-            <Avatar width="5" height="5" radius="full" src={user.photo} fallback={avatarLetter} />
+            <Avatar size="1" radius="full" src={user.photo} fallback={avatarLetter} />
             <Text size="2" align="center">
                 {name}
             </Text>

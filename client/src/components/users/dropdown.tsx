@@ -1,13 +1,19 @@
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { DropdownMenu, IconButton } from "@radix-ui/themes";
 import { useContext } from "react";
-import { UserContext } from "./user-context";
+import { UserContext } from "./contexts/user-context";
+import { SetUsersContext } from "./contexts/set-users-context";
 
 export const Dropdown = () => {
     const user = useContext(UserContext);
-    if (user == null) {
+    const setUsers = useContext(SetUsersContext);
+    if (user == null || setUsers == null) {
         return null;
     }
+
+    const clickHandler = () => {
+        setUsers((existing) => existing.filter((u) => u.id !== user.id));
+    };
 
     return (
         <DropdownMenu.Root>
@@ -17,7 +23,7 @@ export const Dropdown = () => {
                 </IconButton>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
-                <DropdownMenu.Item>
+                <DropdownMenu.Item onClick={clickHandler}>
                     Delete user
                 </DropdownMenu.Item>
             </DropdownMenu.Content>
