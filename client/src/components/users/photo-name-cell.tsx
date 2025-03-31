@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { UserContext } from "./contexts/user-context"
+import { UserContext } from "./user-context"
 import { Avatar, Text } from "@radix-ui/themes";
 import { userName } from "./util";
 import { CellPadding } from "../table/cell-padding";

@@ -1,25 +1,25 @@
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
 import { Button, Dialog, DropdownMenu, Flex, IconButton, Strong } from "@radix-ui/themes";
-import { ReactNode, useContext, useState } from "react";
-import { UserContext } from "./contexts/user-context";
-import { SetUsersContext } from "./contexts/set-users-context";
+import { ReactNode, useContext } from "react";
+import { UserContext } from "./user-context";
 import { useDeleteUser } from "../../queries/use-delete-user";
 import { userName } from "./util";
+import { useQueryClient } from "@tanstack/react-query";
 
-export const Dropdown = () => {
+export const Dropdown = ({ deleteInProgress, setDeleteInProgress }: { deleteInProgress : boolean, setDeleteInProgress:  React.Dispatch<React.SetStateAction<boolean>> }) => {
     const user = useContext(UserContext);
-    const setUsers = useContext(SetUsersContext);
-    const [deleteInProgress, setDeleteInProgress] = useState(false);
     const deleteUser = useDeleteUser();
 
-    if (user == null || setUsers == null) {
+    const queryClient = useQueryClient();
+    
+    if (user == null) {
         return null;
     }
-
+    
     const clickHandler = () => {
         if (!deleteInProgress) {
             setDeleteInProgress(true);
-            setUsers((existing) => existing.filter((u) => u.id !== u.id));
+            queryClient.invalidateQueries({ queryKey: ["users"] });
             deleteUser.mutate(user.id);
         }
     };
